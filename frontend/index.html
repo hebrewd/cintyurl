@@ -76,11 +76,24 @@
     <form id=frmmain>
         <input type="text" id="url" name="url" placeholder="Enter your URL" required>
         
+	<p id="newurl"></p>
         <br><br>
         
         <input type="submit" value="Submit">
     </form>
 	</div>
+	<script>
+		let frm = document.getElementById('frmmain');
+		let txturl = document.getElementById('url');
+		let newurl = document.getElementById('newurl');
+		frm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			fetch("http://localhost:8080/api", {method: "POST", body: `url=${txturl.value}`}).then(async (res) => {
+				let plainres = await res.text();
+				newurl.innerText = `http://localhost:8080/api/${plainres}`;
+			});
+		});
+	</script>
 
 </body>
 </html>
