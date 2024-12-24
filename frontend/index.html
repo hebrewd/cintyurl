@@ -33,6 +33,8 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+	    font-size: 14px;
+	    color: gray;
         }
 
         input[type="text"] {
@@ -75,9 +77,9 @@
     
     <form id=frmmain>
         <input type="text" id="url" name="url" placeholder="Enter your URL" required>
-        
-	<p id="newurl"></p>
-        <br><br>
+	<br>
+	<label for="url" id="newurl"></label>
+        <br>
         
         <input type="submit" value="Submit">
     </form>
